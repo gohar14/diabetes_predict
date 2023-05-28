@@ -67,7 +67,7 @@ with st.sidebar:
     if (heart_disease_value == 'Yes'):
         heart_disease = 1     
 
-    smoking_history   = st.radio('Smoking History', ('current','never','former')
+    smoking_history   = st.radio('Smoking History', ('current','never','former'))
     if (smoking_history == 'former'):
         smoking_history_former = 1
     elif (smoking_history == 'never'):
