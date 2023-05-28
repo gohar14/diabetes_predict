@@ -87,8 +87,8 @@ features = {
   'HbA1c_level':HbA1c_level,
   'bmi':bmi,
   'blood_glucose_level':blood_glucose_level,
-  'gender_male':gender_male,
-  'gender_other':gender_other,
+  'gender_Male':gender_Male,
+  'gender_Other':gender_Other,
   'smoking_history_former':	smoking_history_former,
   'smoking_history_never':	smoking_history_never}
   
