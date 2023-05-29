@@ -1,14 +1,16 @@
+import os
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
 
 st.set_page_config(layout="wide")
-
+dir_name = os.path.abspath(os.path.dirname(__file__))
 filename = 'diabetes_prediction_model.sav'
+location = os.path.join(dir_name, filename)
 
 #df = df2[['Price', 'Age_08_04', 'KM', 'Fuel_Type', 'Automatic', 'Gears']]
-loaded_model = pickle.load(open(filename, 'rb'))
+loaded_model = pickle.load(open(location, 'rb'))
 
 st.title('Diabetes Prediction Boosting Web App')
 st.write('This is a web app to predict the if you are prone to being diabetec\
@@ -104,4 +106,5 @@ with col1:
 with col2: 
     if prButton:    
         prediction = loaded_model.predict(features_df)    
+        print(prediction)
         st.write(' Based on feature values, your diabetes value is '+ str(int(prediction)))
