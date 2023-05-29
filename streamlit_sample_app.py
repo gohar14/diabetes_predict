@@ -1,16 +1,19 @@
+from io import BytesIO
 import os
+import joblib
+import requests
 import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
 
 st.set_page_config(layout="wide")
-dir_name = os.path.abspath(os.path.dirname(__file__))
-filename = 'diabetes_prediction_model.sav'
-location = os.path.join(dir_name, filename)
 
-#df = df2[['Price', 'Age_08_04', 'KM', 'Fuel_Type', 'Automatic', 'Gears']]
-loaded_model = pickle.load(open(location, 'rb'))
+
+mLink = "https://github.com/gohar14/diabetes_predict/blob/main/diabetes_prediction_model.sav?raw=true"
+mfile = BytesIO(requests.get(mLink).content)
+loaded_model = joblib.load(mfile)
+
 
 st.title('Diabetes Prediction Boosting Web App')
 st.write('This is a web app to predict the if you are prone to being diabetec\
